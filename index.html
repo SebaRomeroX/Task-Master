@@ -4,29 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task Master</title>
-    <link rel="icon" type="image/png" href="./assets/rocket.svg" />
+    <meta name="description" content="Tablero para anotar tareas pendientes.">
+    <meta name="author" content="Sebastian A. Romero">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dosis&family=Open+Sans&family=Parisienne&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Open+Sans&family=Parisienne&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
     <link rel="stylesheet" href="styles.css" />
+
+    <link rel="icon" type="image/png" href="./assets/rocket.svg" />
+
+    <title>Task Master</title>
   </head>
   <body>
     <main>
       <div class="mainCard">
-        <div class="title"><img src="./assets/rocket.svg" /></div>
+        <div class="title">
+          <img src="./assets/rocket.svg" alt="cohete"/>
+          <h1>Task Master</h1>
+        </div>
+
         <div>
-          <form action="">
+          <form>
             <input
               type="text"
               name="task"
-              placeholder="Nombre de la tarea"
+              placeholder="Ingresa una nueva tarea"
               class="inputForm"
               autocomplete="off"
               data-form-input
@@ -36,10 +40,14 @@
             </button>
           </form>
         </div>
+
         <ul class="cardsList" data-list>
         </ul>
+
       </div>
     </main>
+
+
     <script type="module" src="script.js"></script>
   </body>
 </html>

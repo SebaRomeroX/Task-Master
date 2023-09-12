@@ -8,7 +8,7 @@
 main {
   background-image: linear-gradient(
     109.6deg,
-    rgba(62, 161, 219, 1) 11.2%,
+    rgb(62, 161, 219) 11.2%,
     rgba(93, 52, 236, 1) 100.2%
   );
   width: 100vw;
@@ -27,7 +27,7 @@ form {
 }
 
 .mainCard {
-  width: 40vw;
+  width: 75vw;
   border-radius: 25px;
   background-color: #fff;
   padding: 25px;
@@ -41,10 +41,17 @@ form {
   margin-bottom: 15px;
 }
 
+h1{
+  font-size: 2em;
+  margin-left: 0.6em;
+  color: rgb(41, 29, 214);
+}
+
 .inputForm {
   border: none;
   padding: 10px;
-  border: 1px solid #eee;
+  border: 1px solid #c5c5c5;
+  border-radius: 0.2em;
   outline: none;
   width: 65%;
 }
@@ -54,7 +61,7 @@ form {
 }
 
 .btnCreate {
-  padding: 10px 15px;
+  padding: 0.2em;
   background-image: linear-gradient(
     109.6deg,
     rgba(62, 161, 219, 1) 11.2%,
@@ -78,15 +85,16 @@ form {
 }
 
 .card {
-  width: 90%;
-  padding: 15px;
+  width: 95%;
+  padding: 0.6em;
   box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.16);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
-  margin: 5px 0px;
+  margin: 0.4em 0;
   position: relative;
+  box-sizing: border-box;
 }
 
 .task {
@@ -106,7 +114,7 @@ form {
 }
 
 .trashIcon:hover {
-  color: #f00;
+  color: rgb(199, 0, 0);
 }
 
 .deleteConfirmationPop {
@@ -125,3 +133,47 @@ form {
 .noTasks {
   font-size: 48px;
 }
+
+.checked{
+  color : rgb(62, 161, 219);
+  font-weight: bold;
+}
+.error{
+  border: 2px solid red;
+  color: red;
+}
+.error::placeholder {
+  color: red; 
+}
+
+
+      /*     RESPONSIVE    */
+
+@media all and (min-width: 768px){
+  
+  .mainCard {
+    width: 60vw;
+  }
+
+  .card {
+    width: 90%;
+    padding: 1em;
+    margin: 1em 0;
+  }
+
+  .btnCreate {
+    padding: 1em;
+  }
+}
+
+@media all and (min-width: 1024px){
+  
+  .inputForm {
+    width: 75%;
+  }
+}
+  
+
+
+
+
