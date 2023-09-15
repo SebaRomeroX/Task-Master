@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,25 +7,32 @@
     <meta name="description" content="Tablero para anotar tareas pendientes.">
     <meta name="author" content="Sebastian A. Romero">
 
+    <!--  Fuentes  -->
+
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Open+Sans&family=Parisienne&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 
+    <!--  Estilos  -->
     <link rel="stylesheet" href="styles.css" />
-
     <link rel="icon" type="image/png" href="./assets/rocket.svg" />
-
     <title>Task Master</title>
   </head>
   <body>
     <main>
       <div class="mainCard">
-        <div class="title">
-          <img src="./assets/rocket.svg" alt="cohete"/>
-          <h1>Task Master</h1>
+        
+          <!--  Titulo  -->
+        <div >   
+          <section class="title">
+            <img src="./assets/rocket.svg" alt="cohete"/>
+            <h1>Task Master</h1>
+          </section>
+          <p class="mensaje" mensaje-instructivo>Anota tus tareas pendientes, marca las realizadas o eliminalas.</p>
         </div>
 
-        <div>
+          <!--  Ingreso de tarea nueva  -->
+        <div>   
           <form>
             <input
               type="text"
@@ -41,13 +48,14 @@
           </form>
         </div>
 
-        <ul class="cardsList" data-list>
+          <!--  Lista de tareas  -->
+        <ul class="cardsList" data-list>  
         </ul>
 
       </div>
     </main>
 
-
+      <!--  Script  -->
     <script type="module" src="script.js"></script>
   </body>
 </html>

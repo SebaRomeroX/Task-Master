@@ -1,45 +1,96 @@
+// Importa modulos
 import checkComplete from './components/checkComplete.js';
 import deleteIcon from './components/deleteIcon.js';
 
-const btn = document.querySelector('[data-form-btn]');
- const input = document.querySelector('[data-form-input]');
 
-const createTask = (evento) => {
-  evento.preventDefault();
- 
-  const value = input.value;
-  const list = document.querySelector('[data-list]');
+// Obtener las tareas guardadas en local storage
+let listaTareas = [];
 
-  const task = document.createElement('li');
-  const taskContent = document.createElement('div');
-  const titleTask = document.createElement('span');
-
-
-  if(value.length>0){
-    task.classList.add('card');
-    input.value = '';
-
-
-    titleTask.classList.add('task');
-    titleTask.innerText = value;
-    taskContent.appendChild(checkComplete());
-    taskContent.appendChild(titleTask);
-
-
-    // task.innerHTML = content;
-
-    task.appendChild(taskContent);
-    task.appendChild(deleteIcon());
-    list.appendChild(task);
-  }
-  else{
-    input.classList.toggle('error')
-    setTimeout(volverEstilo,1000)
-  }
+function obtenerTareasGuardadas() {
+  listaTareas = localStorage.getItem('tareas', listaTareas) || '';
+  listaTareas = listaTareas.split(',');
+  listaTareas.forEach(element => {
+    if (element!='') {
+      cargarTareas(element);
+    }
+  });
 };
-function volverEstilo() {
-  input.classList.toggle('error')
+window.addEventListener('load',obtenerTareasGuardadas);
+
+
+//Crea la tarjeta de la tarea
+function cargarTareas(element) {
+  const value = element;
+  const lista = document.querySelector('[data-list]');
+
+  //Crea nuevos elementos
+  const tarea = document.createElement('li');
+  const contenido = document.createElement('div');
+  const texto = document.createElement('span');
+
+  tarea.classList.add('card');
+  texto.classList.add('task');
+
+  //Agregar valores y elementos
+  texto.innerText = value;
+  contenido.appendChild(checkComplete());
+  contenido.appendChild(texto);
+  tarea.appendChild(contenido);
+  tarea.appendChild(deleteIcon());
+  lista.appendChild(tarea);
 }
 
 
-btn.addEventListener('click', createTask);
+// Funcion Crear Nueva Tarea
+const input = document.querySelector('[data-form-input]');
+const mensaje = document.querySelector('[mensaje-instructivo]');
+
+const crearTarea = (evento) => {
+  evento.preventDefault();
+ 
+  const value = input.value;
+
+  //Prevenir la creacion de tarea vacia
+  if(value.length>0){
+
+    //Limpia input
+    input.value = '';
+
+    //Agrega nueva tarea
+    listaTareas.push(value);
+    localStorage.setItem('tareas', listaTareas);
+
+    //Carga la nueva tarea
+    cargarTareas(value);
+
+    ocultarMensajeInstructivo();
+  }
+
+  // Avisa que se debe escribir algo
+  else{
+    input.classList.toggle('error');
+    setTimeout(volverEstilo,1500);
+  }
+};
+
+
+//Devuelve estilo input a normalidad
+function volverEstilo() {
+  input.classList.toggle('error');
+}
+
+
+//Llama funcion crear
+const btn = document.querySelector('[data-form-btn]');
+btn.addEventListener('click', crearTarea);
+
+
+//Oculta mensaje instructivo
+setTimeout(ocultarMensajeInstructivo,30000)
+
+function ocultarMensajeInstructivo() {
+  mensaje.style.display='none';
+};
+
+
+

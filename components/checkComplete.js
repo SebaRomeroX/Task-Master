@@ -1,19 +1,24 @@
-const checkComplete = () => {
-  const i = document.createElement('i');
-  i.classList.add('far', 'fa-check-square', 'icon');
-  i.addEventListener('click', completeTask);
-  return i;
+
+//Crea icono check
+const iconoCheck = () => {
+  const icono = document.createElement('i');
+  icono.classList.add('far', 'fa-check-square', 'icon');
+  icono.addEventListener('click', tareaCompletada);
+  return icono;
 };
 
 
-const completeTask = (event) => {
+//Funcion tarea completada
+const tareaCompletada = (event) => {
   const element = event.target;
   element.classList.toggle('fas');
   element.classList.toggle('completeIcon');
   element.classList.toggle('far');
 
+  //Cambia estilo al texto 
   const parentElement = element.parentNode;
   parentElement.classList.toggle('checked');
 };
 
-export default checkComplete;
+//Exporta modulo
+export default iconoCheck;
